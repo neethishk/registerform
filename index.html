@@ -1,0 +1,162 @@
+<Html>
+<head> 
+<title>
+
+</title>
+</head>
+<body style="background-color:#0096A1; ">
+  <script>
+function myFunction(){
+var canvas = document.getElementById("fname").value;
+var canvas1 = document.getElementById("lname").value;
+var canvas2 = document.getElementById("ph").value;
+var canvas3 = document.getElementById("email").value;
+var canvas4 = document.getElementById("comname").value;
+
+//console.log(canvas+canvas1+canvas2+canvas3+canvas4)
+
+  window.parent.postMessage(
+        JSON.stringify({
+            event_code: "ym-client-event",
+            data: ({
+                event: {
+                    code: "data",
+                    data: {
+                        value: [canvas1,canvas2,canvas3,canvas4]
+                          },
+                        },
+                  }),
+             }),
+        "*"
+    );
+ console.log(JSON.stringify({
+            event_code: "ym-client-event",
+            data: ({
+                event: {
+                    code: "data",
+                    data: {
+                        value: [canvas1,canvas2,canvas3,canvas4]
+                          },
+                        },
+                  }),
+             }))
+};
+
+
+</script>  
+
+
+<style>
+.tacbox {
+  display:block;
+  padding: 2em;
+  margin: 1em;
+  border: 10px solid #ddd;
+  background-color: #eee;
+  max-width: 200px;
+}
+input[type=text] {
+  border: none;
+  border-bottom: 2px solid green;
+-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 5px;
+	border: 1px solid #848484;
+	outline:0;
+	height:25px;
+	width: 275px;
+}
+input[type=text]:focus {
+  background-color: lightblue;
+}
+
+input {
+  height: 2em;
+  width: 20em;
+  vertical-align: middle;
+}
+
+#tnc1{
+  color: Blue;
+margin-left:-7em;
+padding: em;
+font-size: 16px;
+float:
+}
+#tnc{
+  color: Blue;
+
+}
+
+label{
+  color: white
+}
+p{
+  text-align:justify
+}
+#checkbox{
+  margin-top: 1em;
+margin-left:-10.6em;
+}
+
+.textbox {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #848484;
+	outline:0;
+	height:25px;
+	width: 275px;
+ }
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #848484;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
+<center>
+<br>
+<form>
+
+<label> Firstname </label>  <Br> 
+<input id ="fname" type="text" name="firstname" size="15"/> <br> <br>
+<label> Lastname: </label> <Br>    
+<input id ="lname" type="text" name="lastname" size="15"/> <br> <br>
+<label>Work Phone No:</label><Br> 
+<input id ="ph" type="text" name="country code"  value="+91" size="2"/> 
+<br><br>
+<label>Email:</label><Br> 
+<input id ="email" type="text" name="email" size="25"/> <br> <br>
+<label>Company name</label><Br> 
+<input id ="comname" type="text" name="email" size="25"/> <br> <br>
+
+<div class="tacbox">
+ 
+<label id = "tnc" >Terms and Conditions:<br></label>
+<p>By submitting my details, I agree the information I have provided through this website is collected and processed by ESET, spol. s.r.o. for the purpose of marketing communication. I understand I can opt out at any time. ESET takes data protection very seriously</p>
+ <input id="checkbox" type="checkbox" />
+<label id = "tnc1"> I agree to these</label>
+  </div>
+<div class="row">
+			<div class="col-md-12">
+				<button class="btn btn-primary" id="sig-submitBtn"  onclick="myFunction()">Submit</button>
+				</div>
+		</div>
+</center>
